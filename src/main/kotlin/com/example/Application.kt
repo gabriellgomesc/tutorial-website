@@ -1,6 +1,7 @@
 package com.example
 
 import com.example.plugins.*
+import configureTemplating
 import io.ktor.server.application.*
 
 fun main(args: Array<String>) {
