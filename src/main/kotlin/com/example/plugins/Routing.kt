@@ -30,11 +30,8 @@ fun Application.configureRouting() {
       post {
         // Save an article
         val formParameters = call.receiveParameters()
-        val title = formParameters.getOrFail("title")
-        val body = formParameters.getOrFail("body")
-        val newEntry = Article.newEntry(title, body)
-        articles.add(newEntry)
-        call.respondRedirect("/articles/${newEntry.id}")
+        val idNewArticle = Article.createArticle(formParameters)
+        call.respondRedirect("/articles/${idNewArticle}")
       }
       get("{id}") {
         // Show an article with a specific id
