@@ -11,13 +11,25 @@ private constructor(val id: Int, var title: String, var body: String) {
 
     fun newEntry(title: String, body: String) = Article(idCounter.getAndIncrement(), title, body)
 
-    fun createArticle(parameters: Parameters): Int {
+    fun create(parameters: Parameters): Int {
       val title = parameters.getOrFail("title")
       val body = parameters.getOrFail("body")
       val newEntry = newEntry(title, body)
       articles.add(newEntry)
 
       return newEntry.id
+    }
+
+    fun update(id: Int, parameters: Parameters) {
+      val index = articles.indexOf(articles.find { it.id == id })
+      val title = parameters.getOrFail("title")
+      val body = parameters.getOrFail("body")
+      articles[index].title = title
+      articles[index].body = body
+    }
+
+    fun delete(id: Int) {
+      articles.removeIf { it.id == id }
     }
   }
 }

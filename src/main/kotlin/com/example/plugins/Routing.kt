@@ -30,7 +30,7 @@ fun Application.configureRouting() {
       post {
         // Save an article
         val formParameters = call.receiveParameters()
-        val idNewArticle = Article.createArticle(formParameters)
+        val idNewArticle = Article.create(formParameters)
         call.respondRedirect("/articles/${idNewArticle}")
       }
       get("{id}") {
@@ -48,15 +48,12 @@ fun Application.configureRouting() {
         val formParameters = call.receiveParameters()
         when (formParameters.getOrFail("_action")) {
           "update" -> {
-            val index = articles.indexOf(articles.find { it.id == id })
-            val title = formParameters.getOrFail("title")
-            val body = formParameters.getOrFail("body")
-            articles[index].title = title
-            articles[index].body = body
+            Article.update(id, formParameters)
             call.respondRedirect("/articles/$id")
           }
+
           "delete" -> {
-            articles.removeIf { it.id == id }
+            Article.delete(id)
             call.respondRedirect("/articles")
           }
         }
