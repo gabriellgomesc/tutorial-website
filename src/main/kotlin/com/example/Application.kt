@@ -12,5 +12,3 @@ fun Application.module() {
   configureTemplating()
   configureRouting()
 }
-
-// KTORM

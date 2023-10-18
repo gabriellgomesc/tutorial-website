@@ -1,7 +1,8 @@
-package com.example.routers
+package com.example.router
 
-import com.example.controllers.ArticleController
-import com.example.controllers.articles
+import com.example.controller.ArticleController
+import com.example.controller.articles
+import com.example.model.database.DbConnection
 import io.ktor.server.application.*
 import io.ktor.server.freemarker.*
 import io.ktor.server.request.*

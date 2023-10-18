@@ -1,6 +1,6 @@
 package com.example.plugins
 
-import com.example.routers.articlesRouters
+import com.example.router.articlesRouters
 import io.ktor.server.application.*
 import io.ktor.server.http.content.*
 import io.ktor.server.response.*

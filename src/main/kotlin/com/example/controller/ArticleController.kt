@@ -1,8 +1,11 @@
-package com.example.controllers
+package com.example.controller
 
-import com.example.models.Article
+import com.example.model.Article
+import com.example.model.Articles
+import com.example.model.database.DbConnection
 import io.ktor.http.*
 import io.ktor.server.util.*
+import org.ktorm.dsl.insert
 import java.util.concurrent.atomic.AtomicInteger
 
 class ArticleController {
